@@ -21,3 +21,7 @@ nxm(int m, int n)
       return nxm(m-1,n) + nxm(m,n-1);
    }
 }
+
+// Base Condition  one dimension should be one
+// (m,n-1) + (m-1,n) sub problem
+// General relation m,n = (m,n-1) + (m-1,n)
