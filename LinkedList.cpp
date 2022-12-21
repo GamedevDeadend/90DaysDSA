@@ -5,7 +5,7 @@ struct node
 {
     int data;
     node* next;
-}*first = nullptr,*Second = nullptr,*Merged = nullptr;
+}*first = nullptr;
 
 void create(int a[], int size)
 {
@@ -145,52 +145,7 @@ string IsSorted(node* p)                //Is Sorted Code
     return "false";
 }
 
-void Merge(node *p , node *q)
-{
-    node* temp;
-   if(p->data < q->data)
-   {
-    Merged = temp = p;
-    p = p->next;
-    temp->next = NULL;
-   }
 
-   else
-   {
-    Merged = temp = q;
-    q = q ->next;
-    temp->next = NULL;
-   }
-
-   while (p&&q)
-   {
-    if(p->data < q->data)
-    {
-        temp->next = p;
-        temp = p;
-        p = p->next;
-        temp->next = NULL;
-    }
-
-    else
-    {
-      temp ->next = q;
-      temp = q;
-      q = q ->next;
-      temp ->next = NULL;
-    }
-   }
-
-   if(p)
-   {
-    temp->next = p;
-   }
-   else
-   {
-    temp->next = q;
-   }
-   
-}
 
 int main()
 {
