@@ -163,5 +163,4 @@ int main()
     cout<<IsSorted(first)<<endl;
     first = CreverseRecurrsion(first);
     display(first);
-
 }
