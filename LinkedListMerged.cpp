@@ -60,7 +60,7 @@ node* merge(node* p, node* q)
         last->next = nullptr;
     }
 
-    node* merged = last;
+    node* merged = last;			// merged is acting as first pointer for new merged list
     while (p && q)
     {
         if(p->data < q->data)
