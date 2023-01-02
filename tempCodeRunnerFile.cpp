@@ -1,0 +1,1 @@
+CQueue(int size):size(size),front(-1), rear(-1),Q(new int [size]){}
