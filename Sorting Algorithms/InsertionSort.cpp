@@ -11,6 +11,7 @@ void InsertionSort(t a[], int size)
     {
         t temp = a[i];
         int j = i-1;
+        cout<< temp<<"Temp"<<endl;
 
         while( j>-1 && a[j] > temp)
         {
