@@ -1,13 +1,12 @@
 #include<iostream>
 using namespace std;
 
-int* Merge(int a[],int l, int h)
+int* Merge(int a[],int l, int mid, int h)
 {
-    int b[20];
+    int b[5];
     int i = l;
-    int k = 0;
-    int mid = (l+h)/2;
     int j = mid+1;
+    int k = l;
     while(i<=mid && j<=h)
     {
         if(a[i]<a[j])
@@ -41,7 +40,23 @@ int* Merge(int a[],int l, int h)
         }
     }
 
-    return b;
+    for( k = l; k<=h ; k++)
+    {
+        a[k] = b[k];
+    }
+
+    return a;
+}
+
+void MergeSort(int a[],int l, int h)
+{
+    if(l<h)
+    {
+        int mid = ((l+h)/2);
+        MergeSort(a,l,mid);
+        MergeSort(a,mid+1,h);
+        Merge(a,l,mid,h);
+    }
 }
 
 
@@ -53,5 +68,19 @@ int* Merge(int a[],int l, int h)
 
 int main()
 {
-   
+ int a[] = {25,1,85,6,7};  
+ for(int i = 0; i<5;i++)
+ {
+    cout<<a[i]<<" ";
+ }
+    cout<<endl;
+
+ MergeSort(a,0,4);
+
+ for(int i = 0; i<5;i++)
+ {
+    cout<<a[i]<<" ";
+ }
+    cout<<endl;
+
 }

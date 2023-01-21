@@ -7,19 +7,19 @@ using namespace std;
 template<class t>
 void InsertionSort(t a[], int size)
 {
-    for (int i = 1; i< size; i++)
+    for (int i = 1; i< size; i++) //Outer loop to pick an first element from unsorted array
     {
         t temp = a[i];
         int j = i-1;
         cout<< temp<<"Temp"<<endl;
 
-        while( j>-1 && a[j] > temp)
+        while( j>-1 && a[j] > temp) //inner loop for arrange outer loop element in sorted array
         {
             a[j+1] = a[j];
             j--;
         }
 
-        a[j+1] = temp;
+        a[j+1] = temp; //this statement will set outer loop element in sorted part
     }
 }
 

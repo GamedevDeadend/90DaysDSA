@@ -8,9 +8,9 @@ void MySwap(t&,t&);
 template<class t>
 void BubbleSort(t a[], int size)
 {
-    for(int i  = 0; i < size ; i++)
+    for(int i  = 0; i < size ; i++)     //Outer loop to pick an element
     {
-        for(int j = i+1; j<size; j++)
+        for(int j = i+1; j<size; j++) //Inner loop to compare with rest of the elements
         {
             if( a[i] > a[j])
             {
