@@ -84,39 +84,59 @@ int size(TreeNode* node)
 int maximum(TreeNode* node)
 {
     if(node == nullptr)
-        return INT_MIN;
+        return -21371;
 
     return max<int>( node->data, ( max<int>( maximum(node->LChild), maximum(node->RChild) ) ) );
 }
 
-void PrintLvlOrder(TreeNode* Node)
+void PrintLvlOrder(TreeNode* RootNode)
 {
-    queue<int> q;
-    q.push(Node->data);
+    if(RootNode == NULL)  //Base Case
+        return;
+
+    queue<TreeNode*> q;
+
+    q.push(RootNode);
+    // q.push(nullptr); // Line end chr
     
     while(!q.empty())
     {
-        int c = q.front();
-        cout << c << endl;
+        TreeNode* c = q.front();
+        cout << c->data <<" "<< endl;
+        q.pop();
+
+        // if(c == nullptr)
+        // {
+        //     if(q.empty())
+        //         return;
+
+        //     q.push(nullptr);
+        //     cout<<endl;
+        // }
+
 
     if(Node->LChild != nullptr)
-        q.push(Node->LChild->data);
+        q.push(Node->LChild);
 
     if(Node->RChild != nullptr)
-        q.push(Node->RChild->data);
+        q.push(Node->RChild);
+
     }
-
-
 }
 
 int main()
 {
     TreeNode* node = create();
-    cout<<"PreOrder"<<endl;
-    PreorderTraversal(node);
-    cout<<"PostOrder"<<endl;
-    PostorderTraversal(node);
-    cout<<"InOrder"<<endl;
-    InorderTraversal(node);
+    // cout<<"PreOrder"<<endl;
+    // PreorderTraversal(node);
+
+    // cout<<"\nPostOrder"<<endl;
+    // PostorderTraversal(node);
+
+    // cout<<"\nInOrder"<<endl;
+    // InorderTraversal(node);
+
+    cout<<"\nLvl Order"<<endl;
+    PrintLvlOrder(node);
    
 }
