@@ -9,7 +9,7 @@ int main()
    // mask 1<<i (Left Shift 1 by i)
    // Step 2 - check if bit at i after mask i 0 or 1.
 
-   if( (a&1<<i) == 0)
+   if( (a&(1<<i)) == 0)
    {
         cout<<"Bit at ith Position is 0"<<endl;
    }
