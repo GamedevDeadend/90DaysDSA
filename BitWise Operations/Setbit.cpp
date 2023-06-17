@@ -4,7 +4,7 @@ int main()
 {
    //Set ith bit means setting bit at 1
 
-    int a = 405;
+    int a = 5;
     int i = 3; // pos of bit from right hand side
 
    //Step 1 - create a mask for bit pos
