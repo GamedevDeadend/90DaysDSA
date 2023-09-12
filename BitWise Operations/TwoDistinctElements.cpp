@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     int a[] = {1,2,3,4,3,2,1,4,5,6};
-    int b = 0; 
+    int b = 0;  //XOR among all elements of array
     int setbit_no = 0;
 
    for( auto i : a)

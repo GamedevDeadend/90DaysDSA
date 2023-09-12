@@ -1,43 +1,48 @@
-#include<iostream>
+#include <bits/stdc++.h>
+// #include <iostream>
+
+//Here We are Taking Example with triplets.Find Distinct Element which is not repeating.
+//Here instead of 3(Triplets) we can do it for K(K times repeating)
 using namespace std;
-
-// Find Distinct Element in a Array where other elements are repeating K times
-
-int main()
+int main() 
 {
-    int k = 0;
-    int size = 0;
-    int* a;
-    cout<<"Enter Value of K Amount of Repeatation of each value"<<endl;
-    cin>>k;
+    int k  = 3; // K here represent repeatation of all elements except disitinct element
+    int c[32];
+    for( int i = 0; i<32; i++)
+     c[i] = 0;
 
-    a = new int[2*k + 1];
+   int a[] = { 1,1,1,2,2,2,5};
+    int b = 0;
 
-    cout<<"Enter The Elements"<<endl;
-    for(int i = 0; i<2*k + 1; i++)
-    {
-        cin>>a[i];
-    }
+   for(auto i : a)
+   {
+     int n = 31;
+     while( i != 0)
+     {
+          if( ((i%2)^1) == 0)
+          {
+            // cout<<(i^1)<<endl;
+               c[n]++;
+          }
 
-    cout<<"Array is Loaded"<<endl;
+          i = i>>1;
+          n--;
+     }
+   }
 
-    int BitCountArray[32];
+   for( auto i : c)
+   {
+    i = i%k;
+    //  cout<< i;
+   }
 
-    for(int i = 0; i<2*k + 1; i++)
-    {
-        while(a != 0)
-        {
-            
-        }
-    }
+  int res = 0;
+   for( int i = 31; i>=0; i--)
+   {
+      res += (c[i]%k)*(pow(2,31-i));
+   }
 
-
-
-
-
-
+   cout<<endl<<res;
 
 
-
-   
 }
