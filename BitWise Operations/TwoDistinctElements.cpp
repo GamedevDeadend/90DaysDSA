@@ -15,6 +15,7 @@ int main()
 
    cout<<b<<endl;
 
+// set bit has to be last set bit of b and all else as 0
    setbit_no = b&~(b-1);
    cout<<setbit_no<<endl;
 
