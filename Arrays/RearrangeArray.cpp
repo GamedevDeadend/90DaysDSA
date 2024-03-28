@@ -15,6 +15,12 @@ class Solution{
     // arr[i] = v%n;
     // arr[arr[i]] = v/n;
     //https://www.youtube.com/watch?v=hjMUPcwkpJ8
+
+
+        //TO FIT TWO VALUES AT A SAME PLACE
+        // Dividend = Divisior * Quotient + Remainder
+        // Remainder(value1) = Dividend % Divisor
+        // Quotient (value2) = Divident / Divisor
     
     void arrange(long long arr[], int n)
     {
