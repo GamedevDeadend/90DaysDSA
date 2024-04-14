@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+//Kadanes' Algo this logic can be used in other problem also
 // Function to print the elements
 // of Subarray with maximum sum
 void SubarrayWithMaxSum(vector<int>& nums)
