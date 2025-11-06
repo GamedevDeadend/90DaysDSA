@@ -4,12 +4,14 @@ using namespace std;
 long long getWays(vector<int>& coins, int totalCoins, int value, int i);
 long long getWaysMem(vector<int>& coins, int totalCoins, int value, int i);
 long long getWaysTab(vector<int>& coins, int totalCoins, int value);
+long long getWaysTab1D(vector<int>& coins, int totalCoins, int value);
 
 /// <summary>
 /// Memoization array
 /// </summary>
 vector<vector<long long>> memoizationLookup;
 vector<vector<long long>> tabulationLookup;
+vector<long long> tabulationLookup1D;
 
 int main()
 {
@@ -33,6 +35,7 @@ int main()
     cout << "Total number of ways to make change for " << value<< " is (Memoized): " << getWaysMem(coins, numOfCoins, value, 0) << "\n";
     cout<<"Total number of ways to make change for "<<value<<" is (Recursion): "<<getWays(coins, numOfCoins, value, 0)<<endl;
     cout<<"Total number of ways to make change for "<<value<<" is (Tabulation): "<<getWaysTab(coins, numOfCoins, value)<<endl;
+    cout<<"Total number of ways to make change for "<<value<<" is (Tabulation with 1D optimization): "<<getWaysTab1D(coins, numOfCoins, value)<<endl;
 }
    
 /// <summary>
@@ -129,4 +132,26 @@ long long getWaysTab(vector<int>& coins, int totalCoins, int value)
     }
 
     return tabulationLookup[totalCoins][value];
+}
+
+/// @brief Space optimized tabulation approach using 1D array.
+/// @brief Here we use only one array to store the number of ways to make change for values from 0 to 'value'.
+/// @param coins 
+/// @param totalCoins 
+/// @param value 
+/// @return 
+long long getWaysTab1D(vector<int>& coins, int totalCoins, int value)
+{
+    tabulationLookup1D.assign(value + 1, 0);
+    tabulationLookup1D[0] = 1;
+
+    for(int i = 0; i < totalCoins; i++)
+    {
+        for(int j = coins[i]; j <= value; j++)
+        {
+            tabulationLookup1D[j] += tabulationLookup1D[j - coins[i]];
+        }
+    }
+
+    return tabulationLookup1D[value];
 }
